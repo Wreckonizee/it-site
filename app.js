@@ -1,6 +1,6 @@
-// תיק אתר IT - לוגיקת האפליקציה (עיצוב בהיר ונקי + אפקט בחירה אינטראקטיבי ונעים)
+// תיק אתר IT - שיכון ובינוי - 100 אתרים מלאים
 
-const STORAGE_KEY = 'IT_SITE_MANAGER_DATA_V4';
+const STORAGE_KEY = 'IT_SITE_MANAGER_DATA_V5_100_SITES';
 
 // App State
 let state = {
