@@ -1,8 +1,608 @@
-// מאגר נתונים ראשוני - שיכון ובינוי - תיק אתר IT
+// מאגר נתונים מעודכן מלא - שיכון ובינוי - תיק אתר IT (100 אתרים)
 const INITIAL_SITES = [
-  // אלן (7 אתרים)
+  // ==========================================
+  // אלן (53 אתרים - מרכז / מרכז-דרום)
+  // ==========================================
   {
     id: "site-1",
+    name: "משה שרת",
+    city: "תל אביב יפו",
+    region: "מרכז",
+    notes: "",
+    technician: "אלן",
+    address: "רחוב משה שרת, תל אביב",
+    status: "פעיל",
+    highlight: "",
+    contacts: [{ name: "מנהל אתר", role: "מנהל עבודה", phone: "050-1000001", email: "moshe.sharet@shikunbinui.com" }],
+    itSpecs: { provider: "בזק סיבים 1Gbps", ipAddress: "192.168.10.1", subnet: "255.255.255.0", routerModel: "FortiGate 60F", switches: "16P Cisco PoE", wifiAp: "UniFi 6 Lite", printerModel: "HP LaserJet Pro", techNotes: "ארון תקשורת במשרד מנהל אתר." }
+  },
+  {
+    id: "site-2",
+    name: "איכילוב צפוני",
+    city: "תל אביב יפו",
+    region: "מרכז",
+    notes: "",
+    technician: "אלן",
+    address: "מתחם איכילוב צפון, תל אביב",
+    status: "פעיל",
+    highlight: "",
+    contacts: [{ name: "מהנדס אתר", role: "פיקוח בינוי", phone: "050-1000002", email: "ichilov.n@shikunbinui.com" }],
+    itSpecs: { provider: "סלקום סיבים", ipAddress: "192.168.10.2", subnet: "255.255.255.0", routerModel: "Check Point 1530", switches: "24P Gigabit", wifiAp: "Aruba AP22", printerModel: "Brother MFC", techNotes: "מתחם בינוי רפואי." }
+  },
+  {
+    id: "site-3",
+    name: "לבנדה 53",
+    city: "תל אביב יפו",
+    region: "מרכז",
+    notes: "",
+    technician: "אלן",
+    address: "רחוב לבנדה 53, תל אביב",
+    status: "פעיל",
+    highlight: "",
+    contacts: [{ name: "מנהל פרויקט", role: "בינוי", phone: "050-1000003", email: "levanda@shikunbinui.com" }],
+    itSpecs: { provider: "הוט עסקים", ipAddress: "192.168.10.3", subnet: "255.255.255.0", routerModel: "FortiGate 40F", switches: "8P PoE", wifiAp: "UniFi AP", printerModel: "HP MFP", techNotes: "משרדי אתר." }
+  },
+  {
+    id: "site-4",
+    name: "פרי פגזים",
+    city: "תל אביב יפו",
+    region: "מרכז",
+    notes: "",
+    technician: "אלן",
+    address: "מתחם פרי פגזים, תל אביב",
+    status: "פעיל",
+    highlight: "",
+    contacts: [{ name: "רכז שטח", role: "תפעול", phone: "050-1000004", email: "" }],
+    itSpecs: { provider: "בזק סיבים", ipAddress: "192.168.10.4", subnet: "255.255.255.0", routerModel: "FortiGate 60F", switches: "16P PoE", wifiAp: "UniFi AP", printerModel: "Canon iR", techNotes: "משרד שטח." }
+  },
+  {
+    id: "site-5",
+    name: "מוזאון גאולאסוס",
+    city: "תל אביב יפו",
+    region: "מרכז",
+    notes: "",
+    technician: "אלן",
+    address: "מתחם המוזיאון, תל אביב",
+    status: "פעיל",
+    highlight: "",
+    contacts: [{ name: "מנהל בינוי", role: "מנהל אתר", phone: "050-1000005", email: "" }],
+    itSpecs: { provider: "בזק עסקים", ipAddress: "192.168.10.5", subnet: "255.255.255.0", routerModel: "MikroTik RB4011", switches: "16P PoE", wifiAp: "UniFi 6 Pro", printerModel: "HP LaserJet", techNotes: "משרדי הנהלת פרויקט המוזיאון." }
+  },
+  {
+    id: "site-6",
+    name: "שדה דב",
+    city: "תל אביב יפו",
+    region: "מרכז",
+    notes: "4 אתרים",
+    technician: "אלן",
+    address: "מתחם רובע שדה דב, תל אביב",
+    status: "פעיל",
+    highlight: "grey",
+    contacts: [{ name: "מנהל מתחם שדה דב", role: "מנהל פרויקטים ראשי", phone: "050-1000006", email: "sde.dov@shikunbinui.com" }],
+    itSpecs: { provider: "פרטנר סיבים 1Gbps כפול", ipAddress: "10.10.10.1", subnet: "255.255.254.0", routerModel: "FortiGate 100F Cluster", switches: "3x Cisco 24P PoE", wifiAp: "6x UniFi Enterprise", printerModel: "2x Ricoh C3000", techNotes: "מתחם ענק הכולל 4 אתרי בנייה מחוברים." }
+  },
+  {
+    id: "site-7",
+    name: "יפת 55",
+    city: "תל אביב יפו",
+    region: "מרכז",
+    notes: "",
+    technician: "אלן",
+    address: "רחוב יפת 55, יפו",
+    status: "פעיל",
+    highlight: "",
+    contacts: [{ name: "מנהל עבודה", role: "שימור ובינוי", phone: "050-1000007", email: "" }],
+    itSpecs: { provider: "בזק VDSL", ipAddress: "192.168.10.7", subnet: "255.255.255.0", routerModel: "FortiGate 40F", switches: "8P Gigabit", wifiAp: "UniFi AP", printerModel: "Brother HL", techNotes: "אתר בינוי יפו." }
+  },
+  {
+    id: "site-8",
+    name: "דרך השלום",
+    city: "תל אביב יפו",
+    region: "מרכז",
+    notes: "משרד מכירות",
+    technician: "אלן",
+    address: "דרך השלום, תל אביב",
+    status: "פעיל",
+    highlight: "",
+    contacts: [{ name: "מנהלת מכירות", role: "שיווק", phone: "050-1000008", email: "sales.hashalom@shikunbinui.com" }],
+    itSpecs: { provider: "בזק סיבים", ipAddress: "192.168.10.8", subnet: "255.255.255.0", routerModel: "FortiGate 60F", switches: "16P PoE", wifiAp: "Aruba AP22", printerModel: "Canon Color", techNotes: "משרד מכירות ושיווק." }
+  },
+  {
+    id: "site-9",
+    name: "נמל ת\"א",
+    city: "תל אביב יפו",
+    region: "מרכז",
+    notes: "משרד מכירות",
+    technician: "אלן",
+    address: "מתחם נמל תל אביב",
+    status: "פעיל",
+    highlight: "",
+    contacts: [{ name: "מנהלת משרד מכירות", role: "מכירות", phone: "050-1000009", email: "sales.port@shikunbinui.com" }],
+    itSpecs: { provider: "הוט עסקים", ipAddress: "192.168.10.9", subnet: "255.255.255.0", routerModel: "FortiGate 40F", switches: "8P Switch", wifiAp: "UniFi AP", printerModel: "Brother MFC", techNotes: "משרד מכירות נמל." }
+  },
+  {
+    id: "site-10",
+    name: "עמק ברכה",
+    city: "תל אביב יפו",
+    region: "מרכז",
+    notes: "",
+    technician: "אלן",
+    address: "רחוב עמק ברכה, תל אביב",
+    status: "פעיל",
+    highlight: "",
+    contacts: [{ name: "מנהל אתר", role: "בינוי", phone: "050-1000010", email: "" }],
+    itSpecs: { provider: "בזק סיבים", ipAddress: "192.168.10.10", subnet: "255.255.255.0", routerModel: "Check Point 1530", switches: "16P PoE", wifiAp: "UniFi 6 Lite", printerModel: "HP LaserJet", techNotes: "משרד שטח." }
+  },
+  {
+    id: "site-11",
+    name: "נחל עוז",
+    city: "תל אביב יפו",
+    region: "מרכז",
+    notes: "",
+    technician: "אלן",
+    address: "רחוב נחל עוז, תל אביב",
+    status: "פעיל",
+    highlight: "",
+    contacts: [{ name: "מנהל עבודה", role: "תשתיות", phone: "050-1000011", email: "" }],
+    itSpecs: { provider: "סלקום LTE", ipAddress: "192.168.10.11", subnet: "255.255.255.0", routerModel: "Teltonika RUT950", switches: "8P PoE", wifiAp: "Ubiquiti AP", printerModel: "HP DeskJet", techNotes: "קרוואן שטח." }
+  },
+  {
+    id: "site-12",
+    name: "יהודה הלוי",
+    city: "תל אביב יפו",
+    region: "מרכז",
+    notes: "",
+    technician: "אלן",
+    address: "רחוב יהודה הלוי, תל אביב",
+    status: "פעיל",
+    highlight: "",
+    contacts: [{ name: "מנהל פרויקט", role: "הנדסה", phone: "050-1000012", email: "" }],
+    itSpecs: { provider: "בזק סיבים", ipAddress: "192.168.10.12", subnet: "255.255.255.0", routerModel: "FortiGate 60F", switches: "16P Cisco", wifiAp: "UniFi 6 Lite", printerModel: "Lexmark MFP", techNotes: "פרויקט בינוי לב תל אביב." }
+  },
+  {
+    id: "site-13",
+    name: "תבואות הארץ",
+    city: "תל אביב יפו",
+    region: "מרכז",
+    notes: "משרד נכסים - נדלן",
+    technician: "אלן",
+    address: "רחוב תבואות הארץ, תל אביב",
+    status: "פעיל",
+    highlight: "",
+    contacts: [{ name: "מנהלת נכסים", role: "נדל\"ן מניב", phone: "050-1000013", email: "realestate@shikunbinui.com" }],
+    itSpecs: { provider: "פרטנר סיבים", ipAddress: "192.168.10.13", subnet: "255.255.255.0", routerModel: "FortiGate 60F", switches: "24P Gigabit", wifiAp: "3x Aruba AP", printerModel: "Canon ImageRunner", techNotes: "משרדי הנהלת נדל\"ן ונכסים." }
+  },
+  {
+    id: "site-14",
+    name: "גולומב",
+    city: "ראשל\"צ - פלמחים",
+    region: "מרכז",
+    notes: "2 אתרים",
+    technician: "אלן",
+    address: "מתחם גולומב, ראשון לציון / פלמחים",
+    status: "פעיל",
+    highlight: "grey",
+    contacts: [{ name: "מנהל מתחם", role: "מנהל עבודה", phone: "050-1000014", email: "" }],
+    itSpecs: { provider: "בזק סיבים 500M", ipAddress: "192.168.10.14", subnet: "255.255.255.0", routerModel: "FortiGate 60F", switches: "24P Cisco PoE", wifiAp: "3x UniFi AP", printerModel: "Brother MFC", techNotes: "כולל 2 אתרי ביצוע." }
+  },
+  {
+    id: "site-15",
+    name: "ספירן סו\"ב",
+    city: "ראשל\"צ",
+    region: "מרכז",
+    notes: "",
+    technician: "אלן",
+    address: "אזור תעשייה ספירן, ראשון לציון",
+    status: "פעיל",
+    highlight: "",
+    contacts: [{ name: "מנהל אתר סו\"ב", role: "תפעול", phone: "050-1000015", email: "" }],
+    itSpecs: { provider: "הוט עסקים", ipAddress: "192.168.10.15", subnet: "255.255.255.0", routerModel: "FortiGate 40F", switches: "16P Switch", wifiAp: "UniFi 6 Lite", printerModel: "HP LaserJet", techNotes: "ארון תקשורת במשרד סדרן." }
+  },
+  {
+    id: "site-16",
+    name: "431 מקטע 5",
+    city: "ראשון לציון",
+    region: "מרכז",
+    notes: "",
+    technician: "אלן",
+    address: "מחלף 431 / ראשון לציון",
+    status: "פעיל",
+    highlight: "",
+    contacts: [{ name: "מהנדס סלילה", role: "תשתיות", phone: "050-1000016", email: "" }],
+    itSpecs: { provider: "סלקום LTE", ipAddress: "192.168.10.16", subnet: "255.255.255.0", routerModel: "Teltonika RUTX11", switches: "8P Industrial", wifiAp: "UniFi Outdoor", printerModel: "HP DeskJet", techNotes: "משרד שטח קרוואן." }
+  },
+  {
+    id: "site-17",
+    name: "אונו ולג",
+    city: "קרית אונו",
+    region: "מרכז",
+    notes: "",
+    technician: "אלן",
+    address: "רחוב לוי אשכול, קרית אונו",
+    status: "פעיל",
+    highlight: "",
+    contacts: [{ name: "מנהל פרויקט אונו", role: "התחדשות עירונית", phone: "050-1000017", email: "" }],
+    itSpecs: { provider: "בזק סיבים", ipAddress: "192.168.10.17", subnet: "255.255.255.0", routerModel: "FortiGate 60F", switches: "16P PoE", wifiAp: "2x UniFi 6 Lite", printerModel: "HP MFP", techNotes: "משרדי פרויקט." }
+  },
+  {
+    id: "site-18",
+    name: "חנקין שזז\"ר",
+    city: "פתח תקווה",
+    region: "מרכז",
+    notes: "משרדי החניון",
+    technician: "אלן",
+    address: "רחוב חנקין / שזז\"ר, פתח תקווה",
+    status: "פעיל",
+    highlight: "",
+    contacts: [{ name: "מנהל חניון ותפעול", role: "תפעול חניון", phone: "050-1000018", email: "" }],
+    itSpecs: { provider: "בזק סיבים", ipAddress: "192.168.10.18", subnet: "255.255.255.0", routerModel: "Check Point 1530", switches: "16P PoE Switch", wifiAp: "UniFi Mesh", printerModel: "Brother HL", techNotes: "משרדי החניון ומערכות בקרת שערים LPR." }
+  },
+  {
+    id: "site-19",
+    name: "נתבג - חניון 21",
+    city: "נתב\"ג",
+    region: "מרכז",
+    notes: "",
+    technician: "אלן",
+    address: "מתחם חניון 21, נתב\"ג",
+    status: "פעיל",
+    highlight: "",
+    contacts: [{ name: "מנהל אתר נתב\"ג", role: "ביצוע", phone: "050-1000019", email: "" }],
+    itSpecs: { provider: "בזק קווי תמסורת", ipAddress: "10.40.21.1", subnet: "255.255.255.0", routerModel: "Cisco ISR 1100", switches: "24P Cisco PoE", wifiAp: "3x UniFi Outdoor", printerModel: "Canon iR", techNotes: "מתחם רש\"ת. כניסה עם אישור נתב\"ג." }
+  },
+  {
+    id: "site-20",
+    name: "מכירות חולון",
+    city: "חולון",
+    region: "מרכז",
+    notes: "",
+    technician: "אלן",
+    address: "רחוב המלאכה, חולון",
+    status: "פעיל",
+    highlight: "",
+    contacts: [{ name: "מנהלת מכירות", role: "שיווק", phone: "050-1000020", email: "" }],
+    itSpecs: { provider: "הוט עסקים", ipAddress: "192.168.10.20", subnet: "255.255.255.0", routerModel: "FortiGate 40F", switches: "8P Switch", wifiAp: "Aruba AP", printerModel: "Brother Color", techNotes: "משרד מכירות חולון." }
+  },
+  {
+    id: "site-21",
+    name: "המנחית גבעתיים",
+    city: "גבעתיים",
+    region: "מרכז",
+    notes: "",
+    technician: "אלן",
+    address: "רחוב המנחית, גבעתיים",
+    status: "פעיל",
+    highlight: "",
+    contacts: [{ name: "מנהל עבודה", role: "בינוי", phone: "050-1000021", email: "" }],
+    itSpecs: { provider: "בזק סיבים", ipAddress: "192.168.10.21", subnet: "255.255.255.0", routerModel: "FortiGate 40F", switches: "16P PoE", wifiAp: "UniFi AP", printerModel: "HP LaserJet", techNotes: "אתר התחדשות עירונית." }
+  },
+  {
+    id: "site-22",
+    name: "מכירות בת ים",
+    city: "בת ים",
+    region: "מרכז",
+    notes: "משרד מכירות",
+    technician: "אלן",
+    address: "רחוב בלפור / טיילת בת ים",
+    status: "פעיל",
+    highlight: "",
+    contacts: [{ name: "מנהלת מכירות בת ים", role: "מכירות", phone: "050-1000022", email: "" }],
+    itSpecs: { provider: "פרטנר סיבים", ipAddress: "192.168.10.22", subnet: "255.255.255.0", routerModel: "FortiGate 40F", switches: "8P Gigabit", wifiAp: "UniFi 6 Pro", printerModel: "Canon Color Laser", techNotes: "משרד מכירות." }
+  },
+  {
+    id: "site-23",
+    name: "רייכטר",
+    city: "תל אביב יפו",
+    region: "מרכז",
+    notes: "מנורה",
+    technician: "אלן",
+    address: "רחוב רייכטר, תל אביב",
+    status: "פעיל",
+    highlight: "",
+    contacts: [{ name: "מהנדס אתר", role: "פיקוח", phone: "050-1000023", email: "" }],
+    itSpecs: { provider: "בזק סיבים", ipAddress: "192.168.10.23", subnet: "255.255.255.0", routerModel: "Check Point 1550", switches: "16P PoE", wifiAp: "UniFi AP", printerModel: "HP MFP", techNotes: "בשיתוף מנורה." }
+  },
+  {
+    id: "site-24",
+    name: "יונצה",
+    city: "תל אביב יפו",
+    region: "מרכז",
+    notes: "",
+    technician: "אלן",
+    address: "רחוב יונצה, תל אביב",
+    status: "פעיל",
+    highlight: "",
+    contacts: [{ name: "מנהל עבודה", role: "ביצוע", phone: "050-1000024", email: "" }],
+    itSpecs: { provider: "הוט עסקים", ipAddress: "192.168.10.24", subnet: "255.255.255.0", routerModel: "FortiGate 40F", switches: "8P Switch", wifiAp: "UniFi AP", printerModel: "Brother HL", techNotes: "אתר בינוי." }
+  },
+  {
+    id: "site-25",
+    name: "משרד מכירות תל אביב",
+    city: "תל אביב יפו",
+    region: "מרכז",
+    notes: "",
+    technician: "אלן",
+    address: "רחוב אבן גבירול, תל אביב",
+    status: "פעיל",
+    highlight: "",
+    contacts: [{ name: "רכזת מכירות מרכז", role: "שיווק", phone: "050-1000025", email: "sales.tlv@shikunbinui.com" }],
+    itSpecs: { provider: "בזק סיבים 1Gbps", ipAddress: "192.168.10.25", subnet: "255.255.255.0", routerModel: "FortiGate 60F", switches: "24P Cisco", wifiAp: "3x UniFi 6 Pro", printerModel: "Ricoh Multifunction", techNotes: "משרד מכירות ראשי." }
+  },
+  {
+    id: "site-26",
+    name: "מעונות איינשטיין",
+    city: "תל אביב יפו",
+    region: "מרכז",
+    notes: "",
+    technician: "אלן",
+    address: "רחוב איינשטיין, רמת אביב, תל אביב",
+    status: "פעיל",
+    highlight: "",
+    contacts: [{ name: "מנהל פרויקט מעונות", role: "ניהול פרויקט", phone: "050-1000026", email: "" }],
+    itSpecs: { provider: "בזק סיבים", ipAddress: "192.168.10.26", subnet: "255.255.255.0", routerModel: "FortiGate 60F", switches: "2x 24P Cisco PoE", wifiAp: "6x UniFi AC", printerModel: "Canon ImageRunner", techNotes: "מתחם מעונות סטודנטים." }
+  },
+  {
+    id: "site-27",
+    name: "מעונות ברושים - משרדים",
+    city: "תל אביב יפו",
+    region: "מרכז",
+    notes: "",
+    technician: "אלן",
+    address: "מתחם ברושים, אוניברסיטת תל אביב",
+    status: "פעיל",
+    highlight: "",
+    contacts: [{ name: "מנהל מתחם ברושים", role: "הנהלת מעונות", phone: "050-1000027", email: "broshim@shikunbinui.com" }],
+    itSpecs: { provider: "פרטנר סיבים 1Gbps", ipAddress: "192.168.10.27", subnet: "255.255.255.0", routerModel: "FortiGate 80F", switches: "4x Cisco 24P PoE", wifiAp: "8x Aruba Instant On", printerModel: "Konica Minolta", techNotes: "משרדי הנהלת מתחם ברושים." }
+  },
+  {
+    id: "site-28",
+    name: "מעונות יפו",
+    city: "תל אביב יפו",
+    region: "מרכז",
+    notes: "",
+    technician: "אלן",
+    address: "רחוב יפת / שדרות ירושלים, יפו",
+    status: "פעיל",
+    highlight: "",
+    contacts: [{ name: "מנהל אתר", role: "בינוי", phone: "050-1000028", email: "" }],
+    itSpecs: { provider: "הוט עסקים", ipAddress: "192.168.10.28", subnet: "255.255.255.0", routerModel: "FortiGate 40F", switches: "16P PoE", wifiAp: "2x UniFi 6 Lite", printerModel: "HP LaserJet", techNotes: "משרדי אתר." }
+  },
+  {
+    id: "site-29",
+    name: "אינשטיין 2",
+    city: "תל אביב יפו",
+    region: "מרכז",
+    notes: "",
+    technician: "אלן",
+    address: "רחוב איינשטיין 2, תל אביב",
+    status: "פעיל",
+    highlight: "",
+    contacts: [{ name: "מנהל עבודה", role: "בינוי", phone: "050-1000029", email: "" }],
+    itSpecs: { provider: "בזק סיבים", ipAddress: "192.168.10.29", subnet: "255.255.255.0", routerModel: "Check Point 1530", switches: "16P Gigabit", wifiAp: "UniFi AP", printerModel: "Brother MFC", techNotes: "משרד פרויקט." }
+  },
+  {
+    id: "site-30",
+    name: "סמייל",
+    city: "תל אביב יפו",
+    region: "מרכז",
+    notes: "לבדוק האם פעיל",
+    technician: "אלן",
+    address: "רחוב הברזל, רמת החייל, תל אביב",
+    status: "בבדיקה",
+    highlight: "yellow",
+    contacts: [{ name: "איש קשר לבירור", role: "בירור סטטוס", phone: "050-1000030", email: "" }],
+    itSpecs: { provider: "בבירור", ipAddress: "192.168.10.30", subnet: "255.255.255.0", routerModel: "-", switches: "-", wifiAp: "-", printerModel: "-", techNotes: "לבדוק האם האתר עודנו פעיל." }
+  },
+  {
+    id: "site-31",
+    name: "ספירלה",
+    city: "תל אביב יפו",
+    region: "מרכז",
+    notes: "",
+    technician: "אלן",
+    address: "מתחם שרונה / דרך בגין, תל אביב",
+    status: "פעיל",
+    highlight: "",
+    contacts: [{ name: "מנהל פרויקט מגדל", role: "הנדסה", phone: "050-1000031", email: "spirala@shikunbinui.com" }],
+    itSpecs: { provider: "בזק סיבים 1Gbps", ipAddress: "192.168.10.31", subnet: "255.255.255.0", routerModel: "FortiGate 80F", switches: "2x Cisco 24P PoE", wifiAp: "4x UniFi 6 Pro", printerModel: "Canon iR-ADV", techNotes: "מגדל ספירלה - משרדי הנהלה." }
+  },
+  {
+    id: "site-32",
+    name: "פרי מגדים",
+    city: "תל אביב יפו",
+    region: "מרכז",
+    notes: "",
+    technician: "אלן",
+    address: "שכונת נחלת יצחק, תל אביב",
+    status: "פעיל",
+    highlight: "",
+    contacts: [{ name: "מנהל עבודה", role: "ביצוע", phone: "050-1000032", email: "" }],
+    itSpecs: { provider: "הוט עסקים", ipAddress: "192.168.10.32", subnet: "255.255.255.0", routerModel: "FortiGate 40F", switches: "16P PoE", wifiAp: "UniFi 6 Lite", printerModel: "HP MFP", techNotes: "אתר מגורים." }
+  },
+  {
+    id: "site-33",
+    name: "איכילוב דרומי",
+    city: "תל אביב יפו",
+    region: "מרכז",
+    notes: "",
+    technician: "אלן",
+    address: "מתחם איכילוב דרום / ויצמן, תל אביב",
+    status: "פעיל",
+    highlight: "",
+    contacts: [{ name: "מנהל אתר איכילוב דרום", role: "בינוי רפואי", phone: "050-1000033", email: "" }],
+    itSpecs: { provider: "בזק סיבים", ipAddress: "192.168.10.33", subnet: "255.255.255.0", routerModel: "FortiGate 60F", switches: "24P Cisco PoE", wifiAp: "3x Aruba AP", printerModel: "Canon ImageRunner", techNotes: "משרדי פרויקט." }
+  },
+  {
+    id: "site-34",
+    name: "מלון באזל",
+    city: "תל אביב יפו",
+    region: "מרכז",
+    notes: "",
+    technician: "אלן",
+    address: "רחוב הירקון / באזל, תל אביב",
+    status: "פעיל",
+    highlight: "",
+    contacts: [{ name: "מנהל פרויקט מלונאות", role: "פרויקטים", phone: "050-1000034", email: "" }],
+    itSpecs: { provider: "פרטנר סיבים", ipAddress: "192.168.10.34", subnet: "255.255.255.0", routerModel: "Check Point 1550", switches: "24P PoE Switch", wifiAp: "3x UniFi AP-PRO", printerModel: "Xerox WorkCentre", techNotes: "אתר בינוי מלון." }
+  },
+  {
+    id: "site-35",
+    name: "נתיבי איילון",
+    city: "תל אביב יפו",
+    region: "מרכז",
+    notes: "",
+    technician: "אלן",
+    address: "תוואי נתיבי איילון / מחלף השלום",
+    status: "פעיל",
+    highlight: "",
+    contacts: [{ name: "מהנדס תשתיות", role: "סלילה וגשרים", phone: "050-1000035", email: "" }],
+    itSpecs: { provider: "סלולרי LTE Teltonika", ipAddress: "192.168.10.35", subnet: "255.255.255.0", routerModel: "Teltonika RUTX11", switches: "8P Industrial", wifiAp: "UniFi Outdoor", printerModel: "HP DeskJet", techNotes: "קרוואן משרד שטח." }
+  },
+  {
+    id: "site-36",
+    name: "מעונות ברושים",
+    city: "תל אביב יפו",
+    region: "מרכז",
+    notes: "אתר בניה",
+    technician: "אלן",
+    address: "מתחם ברושים שלב ג', תל אביב",
+    status: "פעיל",
+    highlight: "",
+    contacts: [{ name: "מנהל עבודה בינוי", role: "בינוי", phone: "050-1000036", email: "" }],
+    itSpecs: { provider: "בזק סיבים", ipAddress: "192.168.10.36", subnet: "255.255.255.0", routerModel: "FortiGate 60F", switches: "16P PoE", wifiAp: "2x UniFi 6 Lite", printerModel: "HP LaserJet MFP", techNotes: "אתר בניית שלב ג'." }
+  },
+  {
+    id: "site-37",
+    name: "מפעל בטון רמלה",
+    city: "רמלה",
+    region: "מרכז",
+    notes: "",
+    technician: "אלן",
+    address: "אזור תעשייה נשר / רמלה",
+    status: "פעיל",
+    highlight: "",
+    contacts: [{ name: "מנהל מפעל בטון", role: "תפעול וייצור", phone: "050-1000037", email: "beton.ramla@shikunbinui.com" }],
+    itSpecs: { provider: "בזק VDSL + LTE גיבוי", ipAddress: "192.168.10.37", subnet: "255.255.255.0", routerModel: "FortiGate 60F", switches: "16P D-Link", wifiAp: "UniFi Long-Range", printerModel: "Brother HL", techNotes: "עמדת שקילה אוטומטית ומצלמות LPR." }
+  },
+  {
+    id: "site-38",
+    name: "מעון שורק",
+    city: "ראשל\"צ",
+    region: "מרכז",
+    notes: "",
+    technician: "אלן",
+    address: "פארק שורק, ראשון לציון",
+    status: "פעיל",
+    highlight: "",
+    contacts: [{ name: "מנהל אתר שורק", role: "ניהול אתר", phone: "050-1000038", email: "" }],
+    itSpecs: { provider: "הוט עסקים", ipAddress: "192.168.10.38", subnet: "255.255.255.0", routerModel: "FortiGate 40F", switches: "16P PoE", wifiAp: "UniFi 6 Lite", printerModel: "HP LaserJet", techNotes: "משרדי אתר." }
+  },
+  {
+    id: "site-39",
+    name: "ריקטק ראשל\"צ",
+    city: "ראשל\"צ",
+    region: "מרכז",
+    notes: "בהקמה",
+    technician: "אלן",
+    address: "אזור תעשייה ראשון לציון מערב",
+    status: "בהקמה",
+    highlight: "yellow",
+    contacts: [{ name: "מנהל הקמת ריקטק", role: "הקמה והנדסה", phone: "050-1000039", email: "" }],
+    itSpecs: { provider: "סלולרי זמני Teltonika", ipAddress: "192.168.10.39", subnet: "255.255.255.0", routerModel: "Teltonika RUT950", switches: "8P PoE Switch", wifiAp: "UniFi AP", printerModel: "Canon Multifunction", techNotes: "אתר בשלבי הקמה." }
+  },
+  {
+    id: "site-40",
+    name: "431 מקטע 5",
+    city: "ראשון לציון",
+    region: "מרכז",
+    notes: "",
+    technician: "אלן",
+    address: "מחלף ראשונים / 431",
+    status: "פעיל",
+    highlight: "",
+    contacts: [{ name: "מנהל מקטע", role: "תשתיות", phone: "050-1000040", email: "" }],
+    itSpecs: { provider: "סלקום LTE", ipAddress: "192.168.10.40", subnet: "255.255.255.0", routerModel: "Teltonika RUTX11", switches: "8P Switch", wifiAp: "UniFi AP", printerModel: "HP LaserJet", techNotes: "קרוואן פיקוח." }
+  },
+  {
+    id: "site-41",
+    name: "ספירן EPC",
+    city: "ראשון לציון",
+    region: "מרכז",
+    notes: "",
+    technician: "אלן",
+    address: "מתחם EPC ספירן, ראשון לציון",
+    status: "פעיל",
+    highlight: "",
+    contacts: [{ name: "מנהל פרויקט EPC", role: "הנדסה", phone: "050-1000041", email: "" }],
+    itSpecs: { provider: "בזק סיבים", ipAddress: "192.168.10.41", subnet: "255.255.255.0", routerModel: "FortiGate 60F", switches: "24P Cisco", wifiAp: "2x UniFi AP", printerModel: "Brother MFC", techNotes: "משרדי הנהלת EPC." }
+  },
+  {
+    id: "site-42",
+    name: "מסילה מזרחית מקטע D",
+    city: "תחנת אל על",
+    region: "מרכז",
+    notes: "ריקטק",
+    technician: "אלן",
+    address: "סמוך לצומת אל על / נתב\"ג",
+    status: "פעיל",
+    highlight: "",
+    contacts: [{ name: "מנהל מקטע מסילה", role: "רכבת ישראל", phone: "050-1000042", email: "" }],
+    itSpecs: { provider: "מודם LTE כפול + אנטנה חיצונית", ipAddress: "192.168.10.42", subnet: "255.255.255.0", routerModel: "Teltonika RUTX12", switches: "8P PoE Switch", wifiAp: "UniFi Outdoor", printerModel: "HP DeskJet", techNotes: "פרויקט מסילה מזרחית מקטע D בשילוב ריקטק." }
+  },
+  {
+    id: "site-43",
+    name: "חנקין שזז\"ר",
+    city: "פתח תקווה",
+    region: "מרכז",
+    notes: "",
+    technician: "אלן",
+    address: "רחוב חנקין, פתח תקווה",
+    status: "פעיל",
+    highlight: "",
+    contacts: [{ name: "מנהל עבודה", role: "בינוי", phone: "050-1000043", email: "" }],
+    itSpecs: { provider: "הוט עסקים", ipAddress: "192.168.10.43", subnet: "255.255.255.0", routerModel: "FortiGate 40F", switches: "16P Switch", wifiAp: "UniFi AP", printerModel: "HP LaserJet", techNotes: "משרד שטח." }
+  },
+  {
+    id: "site-44",
+    name: "פלמחים",
+    city: "פלמחים",
+    region: "מרכז",
+    notes: "משרדי המולג\"ג",
+    technician: "אלן",
+    address: "מתחם פלמחים / מולג\"ג",
+    status: "פעיל",
+    highlight: "",
+    contacts: [{ name: "מנהל מולג\"ג", role: "תפעול ימי ולוגיסטיקה", phone: "050-1000044", email: "" }],
+    itSpecs: { provider: "בזק סיבים 500M", ipAddress: "192.168.10.44", subnet: "255.255.255.0", routerModel: "FortiGate 60F", switches: "24P Cisco PoE", wifiAp: "3x UniFi Outdoor", printerModel: "Canon ImageRunner", techNotes: "משרדי מולג\"ג פלמחים." }
+  },
+  {
+    id: "site-45",
+    name: "אלנבי נווה",
+    city: "כפר אז\"ר",
+    region: "מרכז",
+    notes: "",
+    technician: "אלן",
+    address: "כפר אז\"ר / קרית אונו",
+    status: "פעיל",
+    highlight: "",
+    contacts: [{ name: "מנהל אתר", role: "בינוי", phone: "050-1000045", email: "" }],
+    itSpecs: { provider: "בזק סיבים", ipAddress: "192.168.10.45", subnet: "255.255.255.0", routerModel: "FortiGate 40F", switches: "8P PoE", wifiAp: "UniFi AP", printerModel: "Brother HL", techNotes: "אתר מגורים." }
+  },
+  {
+    id: "site-46",
+    name: "מפעל אספלט חולון",
+    city: "חולון",
+    region: "מרכז",
+    notes: "",
+    technician: "אלן",
+    address: "אזור תעשייה, חולון",
+    status: "פעיל",
+    highlight: "",
+    contacts: [{ name: "מנהל מפעל אספלט", role: "תפעול", phone: "050-1000046", email: "asphalt.holon@shikunbinui.com" }],
+    itSpecs: { provider: "בזק עסקים", ipAddress: "192.168.10.46", subnet: "255.255.255.0", routerModel: "FortiGate 40F", switches: "16P Switch", wifiAp: "UniFi AP", printerModel: "HP LaserJet", techNotes: "מפעל אספלט חולון." }
+  },
+  {
+    id: "site-47",
     name: "מפעל בטון חולון",
     city: "חולון",
     region: "מרכז",
@@ -11,23 +611,11 @@ const INITIAL_SITES = [
     address: "אזור תעשייה, חולון",
     status: "פעיל",
     highlight: "",
-    contacts: [
-      { name: "מנהל אתר", role: "מנהל עבודה", phone: "050-0000001", email: "holon@shikunbinui.com" },
-      { name: "איש קשר מקומי", role: "רכז תפעול", phone: "050-0000002", email: "" }
-    ],
-    itSpecs: {
-      provider: "בזק בינלאומי / תשתית בזק",
-      ipAddress: "192.168.10.1",
-      subnet: "255.255.255.0",
-      routerModel: "Fortinet FortiGate 60F",
-      switches: "Cisco Catalyst 24P PoE",
-      wifiAp: "2x UniFi U6-Lite",
-      printerModel: "HP LaserJet Pro M428fdw",
-      techNotes: "ארון תקשורת בחדר מנהל מפעל. נקודות רשת לשקילה ולמשרד."
-    }
+    contacts: [{ name: "מנהל מפעל בטון", role: "מנהל עבודה", phone: "050-0000001", email: "holon@shikunbinui.com" }],
+    itSpecs: { provider: "בזק בינלאומי / תשתית בזק", ipAddress: "192.168.10.47", subnet: "255.255.255.0", routerModel: "Fortinet FortiGate 60F", switches: "Cisco Catalyst 24P PoE", wifiAp: "2x UniFi U6-Lite", printerModel: "HP LaserJet Pro M428fdw", techNotes: "ארון תקשורת בחדר מנהל מפעל. נקודות רשת לשקילה ולמשרד." }
   },
   {
-    id: "site-2",
+    id: "site-48",
     name: "פרשקובסקי הרצליה",
     city: "הרצליה",
     region: "מרכז",
@@ -36,22 +624,11 @@ const INITIAL_SITES = [
     address: "הרצליה פיתוח / גליל ים",
     status: "פעיל",
     highlight: "",
-    contacts: [
-      { name: "מנהל פרויקט", role: "מנהל פרויקט", phone: "052-1111111", email: "herzliya@shikunbinui.com" }
-    ],
-    itSpecs: {
-      provider: "סלקום עסקים",
-      ipAddress: "192.168.12.1",
-      subnet: "255.255.255.0",
-      routerModel: "MikroTik RB4011",
-      switches: "1x 16 Port PoE",
-      wifiAp: "UniFi AP-AC-Pro",
-      printerModel: "Canon i-SENSYS MF445dw",
-      techNotes: "משרדי הנהלה בקומה 2."
-    }
+    contacts: [{ name: "מנהל פרויקט", role: "מנהל פרויקט", phone: "052-1111111", email: "herzliya@shikunbinui.com" }],
+    itSpecs: { provider: "סלקום עסקים", ipAddress: "192.168.12.1", subnet: "255.255.255.0", routerModel: "MikroTik RB4011", switches: "1x 16 Port PoE", wifiAp: "UniFi AP-AC-Pro", printerModel: "Canon i-SENSYS MF445dw", techNotes: "משרדי הנהלה בקומה 2." }
   },
   {
-    id: "site-3",
+    id: "site-49",
     name: "הוד השרון",
     city: "הוד השרון",
     region: "מרכז",
@@ -60,22 +637,11 @@ const INITIAL_SITES = [
     address: "רחוב סוקולוב, הוד השרון",
     status: "פעיל",
     highlight: "",
-    contacts: [
-      { name: "מנהלת משרד מכירות", role: "מכירות ושיווק", phone: "054-2222222", email: "hod.sales@shikunbinui.com" }
-    ],
-    itSpecs: {
-      provider: "הוט עסקים",
-      ipAddress: "192.168.14.1",
-      subnet: "255.255.255.0",
-      routerModel: "FortiGate 40F",
-      switches: "TP-Link 8P Gigabit",
-      wifiAp: "Aruba Instant On AP11",
-      printerModel: "Brother MFC-L3770CDW",
-      techNotes: "משרד מכירות ייצוגי - כולל מסך תצוגה מחובר ל-NUC."
-    }
+    contacts: [{ name: "מנהלת משרד מכירות", role: "מכירות ושיווק", phone: "054-2222222", email: "hod.sales@shikunbinui.com" }],
+    itSpecs: { provider: "הוט עסקים", ipAddress: "192.168.14.1", subnet: "255.255.255.0", routerModel: "FortiGate 40F", switches: "TP-Link 8P Gigabit", wifiAp: "Aruba Instant On AP11", printerModel: "Brother MFC-L3770CDW", techNotes: "משרד מכירות ייצוגי - כולל מסך תצוגה מחובר ל-NUC." }
   },
   {
-    id: "site-4",
+    id: "site-50",
     name: "מפעל אספלט מודיעין",
     city: "ברקת",
     region: "מרכז",
@@ -84,22 +650,11 @@ const INITIAL_SITES = [
     address: "אזור תעשייה ברקת / מודיעין",
     status: "פעיל",
     highlight: "",
-    contacts: [
-      { name: "מנהל מפעל", role: "תפעול וייצור", phone: "050-3333333", email: "bareket@shikunbinui.com" }
-    ],
-    itSpecs: {
-      provider: "תשתית סלולרית תעשייתית (סלקום / ראוטר Teltonika)",
-      ipAddress: "192.168.16.1",
-      subnet: "255.255.255.0",
-      routerModel: "Teltonika RUT950 (LTE)",
-      switches: "D-Link Industrial 8P",
-      wifiAp: "Ubiquiti NanoStation LOCO M2",
-      printerModel: "HP LaserJet P2035",
-      techNotes: "חיבור עמדת שקילה תעשייתית ומצלמות LPR בכניסה."
-    }
+    contacts: [{ name: "מנהל מפעל", role: "תפעול וייצור", phone: "050-3333333", email: "bareket@shikunbinui.com" }],
+    itSpecs: { provider: "תשתית סלולרית תעשייתית (סלקום / ראוטר Teltonika)", ipAddress: "192.168.16.1", subnet: "255.255.255.0", routerModel: "Teltonika RUT950 (LTE)", switches: "D-Link Industrial 8P", wifiAp: "Ubiquiti NanoStation LOCO M2", printerModel: "HP LaserJet P2035", techNotes: "חיבור עמדת שקילה תעשייתית ומצלמות LPR בכניסה." }
   },
   {
-    id: "site-5",
+    id: "site-51",
     name: "מסילה מזרחית אלעד",
     city: "אלעד",
     region: "מרכז",
@@ -108,22 +663,11 @@ const INITIAL_SITES = [
     address: "אתר עבודה רכבת ישראל, סמוך לאלעד",
     status: "פעיל",
     highlight: "",
-    contacts: [
-      { name: "מהנדס אתר", role: "הנדסה ותשתיות", phone: "050-4444444", email: "elad.rail@shikunbinui.com" }
-    ],
-    itSpecs: {
-      provider: "מודם סלולרי LTE חזק + אנטנה חיצונית",
-      ipAddress: "192.168.18.1",
-      subnet: "255.255.255.0",
-      routerModel: "Teltonika RUTX11",
-      switches: "8P PoE Switch",
-      wifiAp: "UniFi Outdoor AP",
-      printerModel: "HP All-In-One",
-      techNotes: "קרוואן משרד שטח. חשמל מגנרטור - קיים אל-פסק UPS 1500VA."
-    }
+    contacts: [{ name: "מהנדס אתר", role: "הנדסה ותשתיות", phone: "050-4444444", email: "elad.rail@shikunbinui.com" }],
+    itSpecs: { provider: "מודם סלולרי LTE חזק + אנטנה חיצונית", ipAddress: "192.168.18.1", subnet: "255.255.255.0", routerModel: "Teltonika RUTX11", switches: "8P PoE Switch", wifiAp: "UniFi Outdoor AP", printerModel: "HP All-In-One", techNotes: "קרוואן משרד שטח. חשמל מגנרטור - קיים אל-פסק UPS 1500VA." }
   },
   {
-    id: "site-6",
+    id: "site-52",
     name: "מעונות רחובות",
     city: "רחובות",
     region: "מרכז \\ דרום",
@@ -132,22 +676,11 @@ const INITIAL_SITES = [
     address: "רחוב הרצל, רחובות",
     status: "פעיל",
     highlight: "",
-    contacts: [
-      { name: "מנהל עבודה", role: "פיקוח בינוי", phone: "052-5555555", email: "rehovot@shikunbinui.com" }
-    ],
-    itSpecs: {
-      provider: "בזק סיבים",
-      ipAddress: "192.168.20.1",
-      subnet: "255.255.255.0",
-      routerModel: "FortiGate 60F",
-      switches: "Cisco SG250 24P",
-      wifiAp: "2x UniFi AP",
-      printerModel: "Lexmark MX521de",
-      techNotes: "רשת משרדית + נקודות רשת למצלמות שטח."
-    }
+    contacts: [{ name: "מנהל עבודה", role: "פיקוח בינוי", phone: "052-5555555", email: "rehovot@shikunbinui.com" }],
+    itSpecs: { provider: "בזק סיבים", ipAddress: "192.168.20.1", subnet: "255.255.255.0", routerModel: "FortiGate 60F", switches: "Cisco SG250 24P", wifiAp: "2x UniFi AP", printerModel: "Lexmark MX521de", techNotes: "רשת משרדית + נקודות רשת למצלמות שטח." }
   },
   {
-    id: "site-7",
+    id: "site-53",
     name: "יובלים",
     city: "נס ציונה",
     region: "מרכז \\ דרום",
@@ -156,24 +689,15 @@ const INITIAL_SITES = [
     address: "מתחם יובלים, נס ציונה",
     status: "פעיל",
     highlight: "",
-    contacts: [
-      { name: "מנהל אתר", role: "ניהול פרויקט", phone: "053-6666666", email: "yuvalim@shikunbinui.com" }
-    ],
-    itSpecs: {
-      provider: "פרטנר סיבים",
-      ipAddress: "192.168.22.1",
-      subnet: "255.255.255.0",
-      routerModel: "Check Point 1530",
-      switches: "HP ProCurve 24G",
-      wifiAp: "Aruba AP-22",
-      printerModel: "HP LaserJet MFP",
-      techNotes: "משרדי מנהלת פרויקט. גיבוי סלולרי אוטומטי מוגדר."
-    }
+    contacts: [{ name: "מנהל אתר", role: "ניהול פרויקט", phone: "053-6666666", email: "yuvalim@shikunbinui.com" }],
+    itSpecs: { provider: "פרטנר סיבים", ipAddress: "192.168.22.1", subnet: "255.255.255.0", routerModel: "Check Point 1530", switches: "HP ProCurve 24G", wifiAp: "Aruba AP-22", printerModel: "HP LaserJet MFP", techNotes: "משרדי מנהלת פרויקט. גיבוי סלולרי אוטומטי מוגדר." }
   },
 
-  // ברוך (39 אתרים)
+  // ==========================================
+  // ברוך (39 אתרים - דרום ומרכז)
+  // ==========================================
   {
-    id: "site-8",
+    id: "site-54",
     name: "משטרת שדרות",
     city: "שדרות",
     region: "דרום",
@@ -186,7 +710,7 @@ const INITIAL_SITES = [
     itSpecs: { provider: "בזק עסקים + LTE", ipAddress: "192.168.30.1", subnet: "255.255.255.0", routerModel: "FortiGate 60F", switches: "16P PoE", wifiAp: "UniFi AP", printerModel: "Brother MFC", techNotes: "אתר מאובטח. נדרש תיאום מראש בכניסה." }
   },
   {
-    id: "site-9",
+    id: "site-55",
     name: "רמת חובב",
     city: "רמת חובב",
     region: "דרום",
@@ -202,7 +726,7 @@ const INITIAL_SITES = [
     itSpecs: { provider: "בזק סיבים", ipAddress: "192.168.32.1", subnet: "255.255.255.0", routerModel: "Cisco ISR 1100", switches: "24P Cisco PoE", wifiAp: "3x UniFi AC-PRO", printerModel: "Canon ImageRunner", techNotes: "אתר בטיפול ישיר מול דודי קדם. דורש ציוד מגן אישי בכניסה למתחם." }
   },
   {
-    id: "site-10",
+    id: "site-56",
     name: "מחלף קרית גת",
     city: "קרית גת",
     region: "דרום",
@@ -215,7 +739,7 @@ const INITIAL_SITES = [
     itSpecs: { provider: "סלולרי Teltonika RUT955", ipAddress: "192.168.34.1", subnet: "255.255.255.0", routerModel: "Teltonika LTE", switches: "8 Port Industrial", wifiAp: "Ubiquiti Loco", printerModel: "HP DeskJet", techNotes: "קרוואן שטח סמוך לכביש." }
   },
   {
-    id: "site-11",
+    id: "site-57",
     name: "אורים",
     city: "קיבוץ אורים",
     region: "דרום",
@@ -224,11 +748,11 @@ const INITIAL_SITES = [
     address: "קיבוץ אורים, עוטף עזה",
     status: "פעיל",
     highlight: "red",
-    contacts: [{ name: "מנהל פרויקט אנרגיה", role: "מנהל אתר סולארי", phone: "054-7000005", email: "solar.urim@company.co.il" }],
+    contacts: [{ name: "מנהל פרויקט אנרגיה", role: "מנהל אתר סולארי", phone: "054-7000005", email: "solar.urim@shikunbinui.com" }],
     itSpecs: { provider: "קו תמסורת / סלולרי מאובטח", ipAddress: "192.168.36.1", subnet: "255.255.255.0", routerModel: "Cisco Industrial", switches: "Moxa Industrial Switch", wifiAp: "UniFi Mesh", printerModel: "-", techNotes: "מתקן סולארי - תקשורת מול מערכת SCADA ובקרת ממירים." }
   },
   {
-    id: "site-12",
+    id: "site-58",
     name: "צאלים",
     city: "צאלים",
     region: "דרום",
@@ -241,7 +765,7 @@ const INITIAL_SITES = [
     itSpecs: { provider: "סלקום LTE", ipAddress: "192.168.38.1", subnet: "255.255.255.0", routerModel: "MikroTik hEX S", switches: "8P PoE", wifiAp: "UniFi AP", printerModel: "HP 404dn", techNotes: "משרד מכולה באתר." }
   },
   {
-    id: "site-13",
+    id: "site-59",
     name: "ערד הארץ",
     city: "ערד",
     region: "דרום",
@@ -250,11 +774,11 @@ const INITIAL_SITES = [
     address: "אזור תעשייה ערד (ישן)",
     status: "פעיל",
     highlight: "",
-    contacts: [{ name: "מנהל מפעל ישן", role: "ייצור", phone: "052-7000007", email: "arad.old@company.co.il" }],
+    contacts: [{ name: "מנהל מפעל ישן", role: "ייצור", phone: "052-7000007", email: "arad.old@shikunbinui.com" }],
     itSpecs: { provider: "בזק VDSL", ipAddress: "192.168.40.1", subnet: "255.255.255.0", routerModel: "D-Link Business", switches: "16P 10/100/1000", wifiAp: "TP-Link Omada", printerModel: "HP LaserJet", techNotes: "תשתית ישנה - מתוכנן שדרוג ארון תקשורת." }
   },
   {
-    id: "site-14",
+    id: "site-60",
     name: "ערד הארץ",
     city: "ערד",
     region: "דרום",
@@ -263,11 +787,11 @@ const INITIAL_SITES = [
     address: "פארק תעשיות ערד (חדש)",
     status: "פעיל",
     highlight: "",
-    contacts: [{ name: "מנהל מפעל חדש", role: "הנהלת מפעל", phone: "052-7000008", email: "arad.new@company.co.il" }],
+    contacts: [{ name: "מנהל מפעל חדש", role: "הנהלת מפעל", phone: "052-7000008", email: "arad.new@shikunbinui.com" }],
     itSpecs: { provider: "בזק סיבים 1Gbps", ipAddress: "192.168.42.1", subnet: "255.255.255.0", routerModel: "FortiGate 80F", switches: "Aruba 48P PoE", wifiAp: "4x Aruba AP22", printerModel: "Ricoh IM C3000", techNotes: "תשתית חדישה - ארון תקשורת מסודר בקומה 1." }
   },
   {
-    id: "site-15",
+    id: "site-61",
     name: "PV ניהול",
     city: "נתיבות",
     region: "דרום",
@@ -276,11 +800,11 @@ const INITIAL_SITES = [
     address: "פארק תעשייה נעם, נתיבות",
     status: "פעיל",
     highlight: "red",
-    contacts: [{ name: "רכז אנרגיה סולארית", role: "בקרת PV", phone: "054-7000009", email: "pv.netivot@company.co.il" }],
+    contacts: [{ name: "רכז אנרגיה סולארית", role: "בקרת PV", phone: "054-7000009", email: "pv.netivot@shikunbinui.com" }],
     itSpecs: { provider: "פרטנר סיבים + גיבוי סלולרי", ipAddress: "192.168.44.1", subnet: "255.255.255.0", routerModel: "FortiGate 60F", switches: "Cisco 24P", wifiAp: "UniFi AP-Pro", printerModel: "HP M428", techNotes: "מרכז שליטה סולארי - קווים רציפים לחוות פוטו-וולטאיות." }
   },
   {
-    id: "site-16",
+    id: "site-62",
     name: "נבטים 18",
     city: "נבטים",
     region: "דרום",
@@ -293,7 +817,7 @@ const INITIAL_SITES = [
     itSpecs: { provider: "תקשורת סלולרית כפולה (Dual SIM)", ipAddress: "192.168.46.1", subnet: "255.255.255.0", routerModel: "Teltonika RUTX12", switches: "8P PoE", wifiAp: "UniFi Long-Range", printerModel: "Brother MFC-L2710DW", techNotes: "אזור קליטה רגיש. אנטנות חיצוניות על תורן המשרד." }
   },
   {
-    id: "site-17",
+    id: "site-63",
     name: "מפעל אספלט דרגות",
     city: "הר דרגות",
     region: "דרום",
@@ -306,7 +830,7 @@ const INITIAL_SITES = [
     itSpecs: { provider: "צלחת מיקרוגל / סלולרי", ipAddress: "192.168.48.1", subnet: "255.255.255.0", routerModel: "MikroTik NetMetal", switches: "8P Industrial", wifiAp: "UniFi Outdoor", printerModel: "HP LaserJet", techNotes: "תנאי סביבה מאובקים וחמים. ארון תקשורת אטום IP65 ממוזג." }
   },
   {
-    id: "site-18",
+    id: "site-64",
     name: "פולדמיר- אורים",
     city: "גדרה",
     region: "דרום",
@@ -319,7 +843,7 @@ const INITIAL_SITES = [
     itSpecs: { provider: "בבירור מול הנהלת פרויקטים", ipAddress: "192.168.50.1", subnet: "255.255.255.0", routerModel: "-", switches: "-", wifiAp: "-", printerModel: "-", techNotes: "יש לוודא האם האתר עודנו פעיל או שפורק והציוד הוחזר למחסן." }
   },
   {
-    id: "site-19",
+    id: "site-65",
     name: "דיזיין פלוס",
     city: "באר שבע",
     region: "דרום",
@@ -328,11 +852,11 @@ const INITIAL_SITES = [
     address: "מרכז Design Plus, א.ת באר שבע",
     status: "פעיל",
     highlight: "",
-    contacts: [{ name: "מנהלת משרד", role: "ניהול משרד", phone: "054-7000013", email: "design.plus@company.co.il" }],
+    contacts: [{ name: "מנהלת משרד", role: "ניהול משרד", phone: "054-7000013", email: "design.plus@shikunbinui.com" }],
     itSpecs: { provider: "הוט עסקים 500M", ipAddress: "192.168.52.1", subnet: "255.255.255.0", routerModel: "FortiGate 40F", switches: "D-Link 16P", wifiAp: "2x UniFi Lite", printerModel: "Xerox VersaLink C405", techNotes: "משרד ניהול מסודר, 8 עמדות עבודה." }
   },
   {
-    id: "site-20",
+    id: "site-66",
     name: "קמפוס מודיעין",
     city: "באר שבע",
     region: "דרום",
@@ -342,13 +866,13 @@ const INITIAL_SITES = [
     status: "פעיל",
     highlight: "grey",
     contacts: [
-      { name: "מנהל פרויקט ראשי", role: "הנהלת הפרויקט", phone: "050-7000014", email: "campus.bs@company.co.il" },
-      { name: "איש IT מקומי", role: "תמיכה שוטפת", phone: "052-7000015", email: "it.campus@company.co.il" }
+      { name: "מנהל פרויקט ראשי", role: "הנהלת הפרויקט", phone: "050-7000014", email: "campus.bs@shikunbinui.com" },
+      { name: "איש IT מקומי", role: "תמיכה שוטפת", phone: "052-7000015", email: "" }
     ],
     itSpecs: { provider: "בזק סיבים 1Gbps כפול + קו גיבוי פרטנר", ipAddress: "10.100.20.1", subnet: "255.255.255.0", routerModel: "FortiGate 100F HA Cluster", switches: "4x Cisco Catalyst 9200 48P", wifiAp: "12x Aruba AP505", printerModel: "3x Canon Multifunction", techNotes: "אתר גדול - 4 מפלסי משרדים, חדר שרתים מקומי עם מזגן כפול ו-UPS." }
   },
   {
-    id: "site-21",
+    id: "site-67",
     name: "כבישים באר שבע",
     city: "באר שבע",
     region: "דרום",
@@ -361,7 +885,7 @@ const INITIAL_SITES = [
     itSpecs: { provider: "סלולרי סלקום", ipAddress: "192.168.56.1", subnet: "255.255.255.0", routerModel: "Teltonika RUT240", switches: "8P Switch", wifiAp: "UniFi AP", printerModel: "HP LaserJet", techNotes: "קרוואן משרד נייד." }
   },
   {
-    id: "site-22",
+    id: "site-68",
     name: "מפעל בטון באר-שבע",
     city: "באר שבע",
     region: "דרום",
@@ -370,11 +894,11 @@ const INITIAL_SITES = [
     address: "עמק שרה, באר שבע",
     status: "פעיל",
     highlight: "",
-    contacts: [{ name: "מנהל מפעל בטון", role: "מנהל אתר", phone: "052-7000017", email: "beton.bs@company.co.il" }],
+    contacts: [{ name: "מנהל מפעל בטון", role: "מנהל אתר", phone: "052-7000017", email: "beton.bs@shikunbinui.com" }],
     itSpecs: { provider: "בזק תשתית", ipAddress: "192.168.58.1", subnet: "255.255.255.0", routerModel: "Check Point Quantum Spark", switches: "16P PoE", wifiAp: "UniFi Mesh", printerModel: "Brother HL-L5200DW", techNotes: "חיבור עמדת שקילת משאיות ומסופון נהגים." }
   },
   {
-    id: "site-23",
+    id: "site-69",
     name: "תקשוב",
     city: "באר שבע",
     region: "דרום",
@@ -384,13 +908,13 @@ const INITIAL_SITES = [
     status: "פעיל",
     highlight: "grey",
     contacts: [
-      { name: "מהנדס ראשי", role: "מנהל מתחם תקשוב", phone: "050-7000018", email: "tikshuv@company.co.il" },
+      { name: "מהנדס ראשי", role: "מנהל מתחם תקשוב", phone: "050-7000018", email: "tikshuv@shikunbinui.com" },
       { name: "רכז רשתות", role: "IT שטח", phone: "054-7000019", email: "" }
     ],
     itSpecs: { provider: "תשתית סיב אופטי עצמאי + FortiGate", ipAddress: "10.200.10.1", subnet: "255.255.254.0", routerModel: "FortiGate 200E", switches: "6x Cisco Catalyst 3850", wifiAp: "16x Cisco Aironet", printerModel: "Konica Minolta Bizhub C360i", techNotes: "אתר גדול ומורכב. תקני אבטחה מחמירים. גישה עם אישור מראש." }
   },
   {
-    id: "site-24",
+    id: "site-70",
     name: "אשלים",
     city: "אשלים",
     region: "דרום",
@@ -399,11 +923,11 @@ const INITIAL_SITES = [
     address: "פארק סולארי אשלים, נגב מערבי",
     status: "פעיל",
     highlight: "",
-    contacts: [{ name: "מנהל אתר תרמו-סולארי", role: "תפעול מתקן", phone: "052-7000020", email: "ashalim@company.co.il" }],
+    contacts: [{ name: "מנהל אתר תרמו-סולארי", role: "תפעול מתקן", phone: "052-7000020", email: "ashalim@shikunbinui.com" }],
     itSpecs: { provider: "סיב אופטי תעשייתי + גיבוי לווייני/סלולרי", ipAddress: "192.168.62.1", subnet: "255.255.255.0", routerModel: "Cisco Industrial 3000", switches: "Industrial Ruggedized 24P", wifiAp: "Industrial Outdoor AP", printerModel: "HP MFP", techNotes: "תנאי חום קיצוניים. מערכות סולאריות מחוברות ל-VLAN ייעודי." }
   },
   {
-    id: "site-25",
+    id: "site-71",
     name: "מרינה אשדוד",
     city: "אשדוד",
     region: "דרום",
@@ -413,10 +937,10 @@ const INITIAL_SITES = [
     status: "בהקמה",
     highlight: "",
     contacts: [{ name: "מנהל בינוי מרינה", role: "בינוי ופיתוח", phone: "050-7000021", email: "" }],
-    itSpecs: { provider: "חיבור זמני LTE", ipAddress: "192.168.64.1", subnet: "255.255.255.0", routerModel: "Teltonika RUT950", switches: "8P PoE Switch", wifiAp: "UniFi AP", printerModel: "Canon Multifunction", techNotes: "אתר בהקמה. טרם חובר סיב קבוע. הזמנת בזק פתוחה מספר 948271." }
+    itSpecs: { provider: "חיבור זמני LTE", ipAddress: "192.168.64.1", subnet: "255.255.255.0", routerModel: "Teltonika RUT950", switches: "8P PoE Switch", wifiAp: "UniFi AP", printerModel: "Canon Multifunction", techNotes: "אתר בהקמה. טרם חובר סיב קבוע." }
   },
   {
-    id: "site-26",
+    id: "site-72",
     name: "תחנת כח אתגל",
     city: "אשדוד",
     region: "דרום",
@@ -425,11 +949,11 @@ const INITIAL_SITES = [
     address: "אזור תעשייה צפוני, אשדוד",
     status: "פעיל",
     highlight: "",
-    contacts: [{ name: "מנהל תחנה", role: "ניהול אתר אנרגיה", phone: "052-7000022", email: "etgal@company.co.il" }],
+    contacts: [{ name: "מנהל תחנה", role: "ניהול אתר אנרגיה", phone: "052-7000022", email: "etgal@shikunbinui.com" }],
     itSpecs: { provider: "בזק קווי תמסורת", ipAddress: "192.168.66.1", subnet: "255.255.255.0", routerModel: "FortiGate 60F", switches: "24P Cisco PoE", wifiAp: "2x UniFi AP", printerModel: "HP LaserJet Pro", techNotes: "מתקן תשתיות אנרגיה. גישה עם נעלי עבודה ואפוד זוהר." }
   },
   {
-    id: "site-27",
+    id: "site-73",
     name: "תמך 1",
     city: "תל אביב יפו",
     region: "מרכז",
@@ -442,7 +966,7 @@ const INITIAL_SITES = [
     itSpecs: { provider: "בזק סיבים", ipAddress: "192.168.68.1", subnet: "255.255.255.0", routerModel: "FortiGate 40F", switches: "16P Gigabit", wifiAp: "UniFi 6 Lite", printerModel: "Brother MFC", techNotes: "משרדי פיקוח והנדסה." }
   },
   {
-    id: "site-28",
+    id: "site-74",
     name: "תע\"ש השלום",
     city: "תל אביב יפו",
     region: "מרכז",
@@ -451,11 +975,11 @@ const INITIAL_SITES = [
     address: "דרך השלום, תל אביב",
     status: "פעיל",
     highlight: "",
-    contacts: [{ name: "מהנדס ראשי", role: "ניהול פרויקט", phone: "054-7000024", email: "taas.hashalom@company.co.il" }],
+    contacts: [{ name: "מהנדס ראשי", role: "ניהול פרויקט", phone: "054-7000024", email: "taas.hashalom@shikunbinui.com" }],
     itSpecs: { provider: "סלקום סיבים 500M", ipAddress: "192.168.70.1", subnet: "255.255.255.0", routerModel: "Check Point 1550", switches: "24P Cisco PoE", wifiAp: "3x UniFi AC-PRO", printerModel: "Xerox WorkCentre", techNotes: "משרדים מרכזיים באתר הבנייה." }
   },
   {
-    id: "site-29",
+    id: "site-75",
     name: "בן גוריון - רמלה",
     city: "רמלה",
     region: "מרכז",
@@ -468,7 +992,7 @@ const INITIAL_SITES = [
     itSpecs: { provider: "הוט עסקים", ipAddress: "192.168.72.1", subnet: "255.255.255.0", routerModel: "FortiGate 40F", switches: "8P PoE", wifiAp: "UniFi Lite", printerModel: "HP MFP", techNotes: "ארון תקשורת בחדר ישיבות." }
   },
   {
-    id: "site-30",
+    id: "site-76",
     name: "מפעל בטון - נחשונים",
     city: "ראש העין / נחשונים",
     region: "מרכז",
@@ -477,11 +1001,11 @@ const INITIAL_SITES = [
     address: "קיבוץ נחשונים / מחצבת נחשונים",
     status: "פעיל",
     highlight: "",
-    contacts: [{ name: "מנהל מפעל נחשונים", role: "תפעול ייצור", phone: "050-7000026", email: "nachshonim@company.co.il" }],
+    contacts: [{ name: "מנהל מפעל נחשונים", role: "תפעול ייצור", phone: "050-7000026", email: "nachshonim@shikunbinui.com" }],
     itSpecs: { provider: "בזק VDSL + LTE גיבוי", ipAddress: "192.168.74.1", subnet: "255.255.255.0", routerModel: "MikroTik RB750Gr3", switches: "16P D-Link", wifiAp: "UniFi Long-Range", printerModel: "HP LaserJet 400", techNotes: "מפעל בטון מרכזי. חיבור למערכת בקרה ושקילה." }
   },
   {
-    id: "site-31",
+    id: "site-77",
     name: "מקטע D",
     city: "מחלף לוד",
     region: "מרכז",
@@ -494,7 +1018,7 @@ const INITIAL_SITES = [
     itSpecs: { provider: "סלולרי LTE Teltonika", ipAddress: "192.168.76.1", subnet: "255.255.255.0", routerModel: "Teltonika RUT950", switches: "8P Gigabit", wifiAp: "Ubiquiti AP", printerModel: "Brother Portable", techNotes: "משרד קרוואן בשטח." }
   },
   {
-    id: "site-32",
+    id: "site-78",
     name: "431 - מודיעין",
     city: "מודיעין",
     region: "מרכז",
@@ -507,7 +1031,7 @@ const INITIAL_SITES = [
     itSpecs: { provider: "סלקום LTE", ipAddress: "192.168.78.1", subnet: "255.255.255.0", routerModel: "Teltonika RUTX11", switches: "8P Switch", wifiAp: "UniFi AP", printerModel: "HP LaserJet", techNotes: "אתר שטח לאורך התוואי." }
   },
   {
-    id: "site-33",
+    id: "site-79",
     name: "בן שמן",
     city: "לוד",
     region: "מרכז",
@@ -516,11 +1040,11 @@ const INITIAL_SITES = [
     address: "מתחם גני יער / בן שמן, לוד",
     status: "פעיל",
     highlight: "",
-    contacts: [{ name: "מנהל משרדי האתר", role: "הנהלת אתר", phone: "050-7000029", email: "ben.shemen.site@company.co.il" }],
+    contacts: [{ name: "מנהל משרדי האתר", role: "הנהלת אתר", phone: "050-7000029", email: "ben.shemen.site@shikunbinui.com" }],
     itSpecs: { provider: "בזק סיבים 500M", ipAddress: "192.168.80.1", subnet: "255.255.255.0", routerModel: "FortiGate 60F", switches: "24P Cisco PoE", wifiAp: "3x UniFi 6 Lite", printerModel: "Canon ImageRunner 2630", techNotes: "משרדים ראשיים של מתחם בן שמן." }
   },
   {
-    id: "site-34",
+    id: "site-80",
     name: "בן שמן",
     city: "לוד",
     region: "מרכז",
@@ -529,11 +1053,11 @@ const INITIAL_SITES = [
     address: "מתחם שיווק והשכרה, בן שמן לוד",
     status: "פעיל",
     highlight: "",
-    contacts: [{ name: "מנהלת השכרות", role: "שיווק והשכרה", phone: "054-7000030", email: "rent.benshemen@company.co.il" }],
-    itSpecs: { provider: "שלוחה מ-LAN משרדי האתר (Fiber Link)", ipAddress: "192.168.80.50", subnet: "255.255.255.0", routerModel: "Cisco Small Business", switches: "16P Gigabit", wifiAp: "2x Aruba AP22", printerModel: "HP Color LaserJet MFP", techNotes: "מחובר בסיב אופטי ישיר למשרדי האתר (site-33)." }
+    contacts: [{ name: "מנהלת השכרות", role: "שיווק והשכרה", phone: "054-7000030", email: "rent.benshemen@shikunbinui.com" }],
+    itSpecs: { provider: "שלוחה מ-LAN משרדי האתר (Fiber Link)", ipAddress: "192.168.80.50", subnet: "255.255.255.0", routerModel: "Cisco Small Business", switches: "16P Gigabit", wifiAp: "2x Aruba AP22", printerModel: "HP Color LaserJet MFP", techNotes: "מחובר בסיב אופטי ישיר למשרדי האתר." }
   },
   {
-    id: "site-35",
+    id: "site-81",
     name: "מכבי בית שמש",
     city: "בית שמש",
     region: "מרכז",
@@ -546,7 +1070,7 @@ const INITIAL_SITES = [
     itSpecs: { provider: "בזק VDSL", ipAddress: "192.168.82.1", subnet: "255.255.255.0", routerModel: "D-Link DSL Router", switches: "8P PoE", wifiAp: "UniFi AP", printerModel: "Brother MFC-L2700", techNotes: "אתר בינוי מוסדי." }
   },
   {
-    id: "site-36",
+    id: "site-82",
     name: "מלון פאלס",
     city: "תל אביב יפו",
     region: "מרכז",
@@ -555,11 +1079,11 @@ const INITIAL_SITES = [
     address: "טיילת תל אביב / הירקון",
     status: "פעיל",
     highlight: "",
-    contacts: [{ name: "מהנדס פרויקט מלון", role: "פרויקטים", phone: "050-7000032", email: "palace.tlv@company.co.il" }],
+    contacts: [{ name: "מהנדס פרויקט מלון", role: "פרויקטים", phone: "050-7000032", email: "palace.tlv@shikunbinui.com" }],
     itSpecs: { provider: "פרטנר סיבים 1Gbps", ipAddress: "192.168.84.1", subnet: "255.255.255.0", routerModel: "FortiGate 60F", switches: "2x Cisco 24P PoE", wifiAp: "4x UniFi AP-AC-PRO", printerModel: "Canon iR-ADV DX", techNotes: "אתר שימור ובינוי יוקרתי." }
   },
   {
-    id: "site-37",
+    id: "site-83",
     name: "הירקון 2",
     city: "תל אביב יפו",
     region: "מרכז",
@@ -572,7 +1096,7 @@ const INITIAL_SITES = [
     itSpecs: { provider: "הוט עסקים", ipAddress: "192.168.86.1", subnet: "255.255.255.0", routerModel: "MikroTik hEX", switches: "16P Switch", wifiAp: "UniFi 6 Lite", printerModel: "HP LaserJet MFP", techNotes: "משרדי הנהלת אתר בבניין סמוך." }
   },
   {
-    id: "site-38",
+    id: "site-84",
     name: "אופק רחב",
     city: "רמלה",
     region: "מרכז",
@@ -581,11 +1105,11 @@ const INITIAL_SITES = [
     address: "מחנה רחבעם (מפקדת אופק רחב), רמלה",
     status: "פעיל",
     highlight: "",
-    contacts: [{ name: "קצין פרויקט / מנהל", role: "הנדסה צבאית", phone: "050-7000034", email: "ofek.ramla@company.co.il" }],
+    contacts: [{ name: "קצין פרויקט / מנהל", role: "הנדסה צבאית", phone: "050-7000034", email: "ofek.ramla@shikunbinui.com" }],
     itSpecs: { provider: "בזק סיבים ייעודיים", ipAddress: "10.50.10.1", subnet: "255.255.255.0", routerModel: "Check Point Quantum Spark", switches: "2x Cisco Catalyst 2960", wifiAp: "UniFi Enterprise", printerModel: "Lexmark MS821", techNotes: "מתקן ביטחוני. כניסה עם תעודת זהות ואישור בטחוני בלבד." }
   },
   {
-    id: "site-39",
+    id: "site-85",
     name: "צומת סביון",
     city: "סביון",
     region: "מרכז",
@@ -594,15 +1118,15 @@ const INITIAL_SITES = [
     address: "צומת סביון / כביש 461",
     status: "עתידי",
     highlight: "yellow",
-    contacts: [{ name: "מתאם פרויקטים", role: "תכנון", phone: "053-7000035", email: "planning@company.co.il" }],
-    itSpecs: { provider: "טרם חובר (מתוכנן סיב בזק)", ipAddress: "192.168.88.1", subnet: "255.255.255.0", routerModel: "מתוכנן FortiGate 40F", switches: "מתוכנן 16P PoE", wifiAp: "מתוכנן UniFi AP", printerModel: "-", techNotes: "פרויקט עתידי. עלייה לקרקע מתוכננת לרבעון הבא." }
+    contacts: [{ name: "מתאם פרויקטים", role: "תכנון", phone: "053-7000035", email: "planning@shikunbinui.com" }],
+    itSpecs: { provider: "טרם חובר (מתוכנן סיב בזק)", ipAddress: "192.168.88.1", subnet: "255.255.255.0", routerModel: "מתוכנן FortiGate 40F", switches: "מתוכנן 16P PoE", wifiAp: "מתוכנן UniFi AP", printerModel: "-", techNotes: "פרויקט עתידי." }
   },
   {
-    id: "site-40",
+    id: "site-86",
     name: "מפעל בטון ראש העין",
     city: "נחשונים",
     region: "מרכז",
-    notes: "",
+    notes: "משרדי מכירות",
     technician: "ברוך",
     address: "פארק אפק / מחצבת ראש העין",
     status: "פעיל",
@@ -611,7 +1135,7 @@ const INITIAL_SITES = [
     itSpecs: { provider: "בזק VDSL עסקי", ipAddress: "192.168.90.1", subnet: "255.255.255.0", routerModel: "FortiGate 40F", switches: "16P Gigabit", wifiAp: "UniFi AP", printerModel: "HP LaserJet", techNotes: "עמדת שקילה אוטומטית ומצלמות זיהוי לוחיות." }
   },
   {
-    id: "site-41",
+    id: "site-87",
     name: "בן שמן",
     city: "לוד",
     region: "מרכז",
@@ -624,7 +1148,7 @@ const INITIAL_SITES = [
     itSpecs: { provider: "בזק סיבים", ipAddress: "192.168.92.1", subnet: "255.255.255.0", routerModel: "MikroTik RB4011", switches: "24P PoE Switch", wifiAp: "2x UniFi 6 Pro", printerModel: "Brother MFC-L8690CDW", techNotes: "משרד שטח מתחם ב'." }
   },
   {
-    id: "site-42",
+    id: "site-88",
     name: "ריקטק בן שמן",
     city: "לוד",
     region: "מרכז",
@@ -632,12 +1156,12 @@ const INITIAL_SITES = [
     technician: "ברוך",
     address: "מתחם ריקטק, אזור לוד / בן שמן",
     status: "בהקמה",
-    highlight: "",
+    highlight: "yellow",
     contacts: [{ name: "מנהל הקמת ריקטק", role: "הקמה והנדסה", phone: "054-7000038", email: "" }],
-    itSpecs: { provider: "סלולרי זמני Teltonika", ipAddress: "192.168.94.1", subnet: "255.255.255.0", routerModel: "Teltonika RUT950", switches: "8P PoE Switch", wifiAp: "UniFi AP", printerModel: "HP All-In-One", techNotes: "אתר בשלבי הקמה ראשוניים. הזמנת תשתית קבועה בטיפול." }
+    itSpecs: { provider: "סלולרי זמני Teltonika", ipAddress: "192.168.94.1", subnet: "255.255.255.0", routerModel: "Teltonika RUT950", switches: "8P PoE Switch", wifiAp: "UniFi AP", printerModel: "HP All-In-One", techNotes: "אתר בשלבי הקמה ראשוניים." }
   },
   {
-    id: "site-43",
+    id: "site-89",
     name: "מפעל בטון בני ברק",
     city: "בני ברק",
     region: "מרכז",
@@ -646,11 +1170,11 @@ const INITIAL_SITES = [
     address: "רחוב הירקון / א.ת בני ברק",
     status: "פעיל",
     highlight: "",
-    contacts: [{ name: "מנהל מפעל ב\"ב", role: "מנהל עבודה", phone: "050-7000039", email: "beton.bb@company.co.il" }],
+    contacts: [{ name: "מנהל מפעל ב\"ב", role: "מנהל עבודה", phone: "050-7000039", email: "beton.bb@shikunbinui.com" }],
     itSpecs: { provider: "הוט עסקים + סלקום גיבוי", ipAddress: "192.168.96.1", subnet: "255.255.255.0", routerModel: "FortiGate 60F", switches: "16P Cisco", wifiAp: "UniFi Long Range", printerModel: "Brother HL-L5100DN", techNotes: "מפעל מרכזי בבני ברק. ארון תקשורת נעול בחדר סדרן." }
   },
   {
-    id: "site-44",
+    id: "site-90",
     name: "אור יהודה - עולם",
     city: "אור יהודה",
     region: "מרכז",
@@ -663,7 +1187,7 @@ const INITIAL_SITES = [
     itSpecs: { provider: "פרטנר סיבים", ipAddress: "192.168.98.1", subnet: "255.255.255.0", routerModel: "Check Point 1530", switches: "24P PoE Switch", wifiAp: "3x UniFi 6 Lite", printerModel: "HP LaserJet MFP", techNotes: "משרדי הנהלת אתר הבנייה." }
   },
   {
-    id: "site-45",
+    id: "site-91",
     name: "אור יהודה - עולם",
     city: "אור יהודה",
     region: "מרכז",
@@ -672,11 +1196,11 @@ const INITIAL_SITES = [
     address: "מתחם O-PARK משרד מכירות, אור יהודה",
     status: "פעיל",
     highlight: "",
-    contacts: [{ name: "מנהלת מכירות O-World", role: "שיווק", phone: "054-7000041", email: "sales.oy@company.co.il" }],
-    itSpecs: { provider: "בזק סיבים 1Gbps", ipAddress: "192.168.100.1", subnet: "255.255.255.0", routerModel: "FortiGate 40F", switches: "16P Gigabit", wifiAp: "2x Aruba AP22", printerModel: "Canon Color ImageRunner", techNotes: "משרד מכירות יוקרתי, רשת אלחוטית לאורחים (Guest WiFi)." }
+    contacts: [{ name: "מנהלת מכירות O-World", role: "שיווק", phone: "054-7000041", email: "sales.oy@shikunbinui.com" }],
+    itSpecs: { provider: "בזק סיבים 1Gbps", ipAddress: "192.168.100.1", subnet: "255.255.255.0", routerModel: "FortiGate 40F", switches: "16P Gigabit", wifiAp: "2x Aruba AP22", printerModel: "Canon Color ImageRunner", techNotes: "משרד מכירות יוקרתי, רשת אלחוטית לאורחים." }
   },
   {
-    id: "site-46",
+    id: "site-92",
     name: "ריקטק יבנה",
     city: "יבנה",
     region: "מרכז \\ דרום",
@@ -685,13 +1209,15 @@ const INITIAL_SITES = [
     address: "פארק תעשיות יבנה דרום",
     status: "פעיל",
     highlight: "",
-    contacts: [{ name: "מנהל מתחם ריקטק יבנה", role: "תפעול", phone: "050-7000042", email: "ricktech.yavne@company.co.il" }],
+    contacts: [{ name: "מנהל מתחם ריקטק יבנה", role: "תפעול", phone: "050-7000042", email: "ricktech.yavne@shikunbinui.com" }],
     itSpecs: { provider: "בזק סיבים 500M", ipAddress: "192.168.102.1", subnet: "255.255.255.0", routerModel: "FortiGate 60F", switches: "24P Cisco PoE", wifiAp: "UniFi AP-Pro", printerModel: "Brother MFC", techNotes: "מחסן מרכזי ומשרדי הנהלה." }
   },
 
-  // חזי (7 אתרים)
+  // ==========================================
+  // חזי (8 אתרים - ירושלים)
+  // ==========================================
   {
-    id: "site-47",
+    id: "site-93",
     name: "פייר קניג",
     city: "ירושלים",
     region: "ירושלים",
@@ -700,11 +1226,11 @@ const INITIAL_SITES = [
     address: "רחוב פייר קניג, תלפיות, ירושלים",
     status: "פעיל",
     highlight: "",
-    contacts: [{ name: "מנהל אתר תלפיות", role: "ניהול פרויקט", phone: "050-8000001", email: "pierre.koenig@company.co.il" }],
+    contacts: [{ name: "מנהל אתר תלפיות", role: "ניהול פרויקט", phone: "050-8000001", email: "pierre.koenig@shikunbinui.com" }],
     itSpecs: { provider: "בזק סיבים 1Gbps", ipAddress: "192.168.110.1", subnet: "255.255.255.0", routerModel: "FortiGate 60F", switches: "24P Cisco Catalyst", wifiAp: "3x UniFi AP-AC", printerModel: "Canon iR-ADV", techNotes: "משרדי פרויקט תלפיות. ארון תקשורת בקומה 1." }
   },
   {
-    id: "site-48",
+    id: "site-94",
     name: "הגבעה הצרפתית",
     city: "ירושלים",
     region: "ירושלים",
@@ -713,11 +1239,11 @@ const INITIAL_SITES = [
     address: "מחלף הגבעה הצרפתית / שדרות בר-לב, ירושלים",
     status: "פעיל",
     highlight: "",
-    contacts: [{ name: "מהנדס מנהרות / מנורה", role: "פיקוח הנדסי", phone: "052-8000002", email: "french.hill@company.co.il" }],
+    contacts: [{ name: "מהנדס מנהרות / מנורה", role: "פיקוח הנדסי", phone: "052-8000002", email: "french.hill@shikunbinui.com" }],
     itSpecs: { provider: "פרטנר סיבים + סלולרי גיבוי", ipAddress: "192.168.112.1", subnet: "255.255.255.0", routerModel: "Check Point 1550", switches: "24P Industrial PoE", wifiAp: "2x UniFi Mesh", printerModel: "HP LaserJet Pro MFP", techNotes: "פרויקט מנהרות הגבעה הצרפתית. מחובר למערכות תאורה ובקרה של מנורה." }
   },
   {
-    id: "site-49",
+    id: "site-95",
     name: "מנת\"י - רמזורים",
     city: "ירושלים",
     region: "ירושלים",
@@ -726,11 +1252,11 @@ const INITIAL_SITES = [
     address: "מתחם בקרת תנועה מנת\"י, ירושלים",
     status: "פעיל",
     highlight: "",
-    contacts: [{ name: "מנהל פרויקט רמזורים", role: "בקרה ורמזור", phone: "054-8000003", email: "manti.jer@company.co.il" }],
+    contacts: [{ name: "מנהל פרויקט רמזורים", role: "בקרה ורמזור", phone: "054-8000003", email: "manti.jer@shikunbinui.com" }],
     itSpecs: { provider: "בזק קווי תמסורת ייעודיים", ipAddress: "10.30.50.1", subnet: "255.255.255.0", routerModel: "Cisco ISR 4331", switches: "3x Cisco Ruggedized 24P", wifiAp: "UniFi AP", printerModel: "HP M428dw", techNotes: "מרכז בקרת רמזורים ותנועה. רשת מבודדת ומאובטחת." }
   },
   {
-    id: "site-50",
+    id: "site-96",
     name: "קפיטל בליליוס",
     city: "ירושלים",
     region: "ירושלים",
@@ -739,11 +1265,11 @@ const INITIAL_SITES = [
     address: "רחוב יפו / מתחם בליליוס, ירושלים",
     status: "פעיל",
     highlight: "",
-    contacts: [{ name: "מנהל בינוי מתחם", role: "מנהל עבודה", phone: "050-8000004", email: "capital.b@company.co.il" }],
+    contacts: [{ name: "מנהל בינוי מתחם", role: "מנהל עבודה", phone: "050-8000004", email: "capital.b@shikunbinui.com" }],
     itSpecs: { provider: "סלקום סיבים 500M", ipAddress: "192.168.116.1", subnet: "255.255.255.0", routerModel: "FortiGate 40F", switches: "16P Gigabit PoE", wifiAp: "2x UniFi 6 Lite", printerModel: "Brother MFC-L3750CDW", techNotes: "משרדי מנהלת פרויקט קפיטל." }
   },
   {
-    id: "site-51",
+    id: "site-97",
     name: "מגדלי ברגר",
     city: "ירושלים",
     region: "ירושלים",
@@ -752,11 +1278,11 @@ const INITIAL_SITES = [
     address: "שערי העיר / רחוב יפו, ירושלים",
     status: "פעיל",
     highlight: "",
-    contacts: [{ name: "מנהל פרויקט ברגר", role: "ניהול בינוי", phone: "052-8000005", email: "berger.towers@company.co.il" }],
+    contacts: [{ name: "מנהל פרויקט ברגר", role: "ניהול בינוי", phone: "052-8000005", email: "berger.towers@shikunbinui.com" }],
     itSpecs: { provider: "הוט עסקים סיבים", ipAddress: "192.168.118.1", subnet: "255.255.255.0", routerModel: "FortiGate 60F", switches: "24P Cisco PoE", wifiAp: "3x Aruba Instant On", printerModel: "Konica Minolta C250i", techNotes: "משרדי הפרויקט בקומה 4." }
   },
   {
-    id: "site-52",
+    id: "site-98",
     name: "משרד מכירות - יהודה שלום",
     city: "ירושלים",
     region: "ירושלים",
@@ -765,11 +1291,11 @@ const INITIAL_SITES = [
     address: "רחוב יהודה שלום, ארנונה, ירושלים",
     status: "פעיל",
     highlight: "",
-    contacts: [{ name: "מנהלת מכירות ארנונה", role: "שיווק ומכירות", phone: "054-8000006", email: "sales.jer@company.co.il" }],
+    contacts: [{ name: "מנהלת מכירות ארנונה", role: "שיווק ומכירות", phone: "054-8000006", email: "sales.jer@shikunbinui.com" }],
     itSpecs: { provider: "בזק סיבים 1Gbps", ipAddress: "192.168.120.1", subnet: "255.255.255.0", routerModel: "Check Point 1530", switches: "8P PoE Switch", wifiAp: "2x UniFi 6 Pro", printerModel: "Brother Color Laser", techNotes: "משרד מכירות פעיל - כולל טאבלטים לאנשי מכירות ומסכי הדגמה." }
   },
   {
-    id: "site-53",
+    id: "site-99",
     name: "הנטקה",
     city: "ירושלים",
     region: "ירושלים",
@@ -778,8 +1304,21 @@ const INITIAL_SITES = [
     address: "רחוב הנטקה, קרית היובל, ירושלים",
     status: "פעיל",
     highlight: "",
-    contacts: [{ name: "מנהל אתר הנטקה", role: "פיקוח ובנייה", phone: "050-8000007", email: "hantke@company.co.il" }],
+    contacts: [{ name: "מנהל אתר הנטקה", role: "פיקוח ובנייה", phone: "050-8000007", email: "hantke@shikunbinui.com" }],
     itSpecs: { provider: "פרטנר סיבים", ipAddress: "192.168.122.1", subnet: "255.255.255.0", routerModel: "FortiGate 40F", switches: "16P PoE Switch", wifiAp: "UniFi 6 Lite", printerModel: "HP LaserJet MFP", techNotes: "משרדי אתר התחדשות עירונית." }
+  },
+  {
+    id: "site-100",
+    name: "כנפי ירושלים",
+    city: "ירושלים",
+    region: "ירושלים",
+    notes: "",
+    technician: "חזי",
+    address: "מתחם כנפי ירושלים / שדרות הרצל, ירושלים",
+    status: "פעיל",
+    highlight: "",
+    contacts: [{ name: "מנהל פרויקט כנפי ירושלים", role: "ניהול בינוי", phone: "050-8000008", email: "kanfei.jer@shikunbinui.com" }],
+    itSpecs: { provider: "בזק סיבים 1Gbps", ipAddress: "192.168.124.1", subnet: "255.255.255.0", routerModel: "FortiGate 60F", switches: "24P Cisco PoE", wifiAp: "3x UniFi 6 Lite", printerModel: "Canon iR-ADV", techNotes: "משרדי פרויקט כנפי ירושלים." }
   }
 ];
 
@@ -788,27 +1327,24 @@ const TECHNICIANS_META = {
     name: "אלן",
     role: "טכנאי שטח - מרכז",
     phone: "050-1234561",
-    email: "alan@company.co.il",
-    color: "blue",
+    email: "alan@shikunbinui.com",
     avatarBg: "from-blue-600 to-indigo-600",
-    badgeBg: "bg-blue-100 text-blue-800 border-blue-200"
+    badgeBg: "bg-blue-50 text-blue-800 border-blue-200"
   },
   "ברוך": {
     name: "ברוך",
     role: "טכנאי שטח - דרום ומרכז",
     phone: "050-1234562",
-    email: "baruch@company.co.il",
-    color: "emerald",
+    email: "baruch@shikunbinui.com",
     avatarBg: "from-emerald-600 to-teal-600",
-    badgeBg: "bg-emerald-100 text-emerald-800 border-emerald-200"
+    badgeBg: "bg-emerald-50 text-emerald-800 border-emerald-200"
   },
   "חזי": {
     name: "חזי",
     role: "טכנאי שטח - ירושלים והסביבה",
     phone: "050-1234563",
-    email: "hezi@company.co.il",
-    color: "amber",
+    email: "hezi@shikunbinui.com",
     avatarBg: "from-amber-500 to-orange-600",
-    badgeBg: "bg-amber-100 text-amber-800 border-amber-200"
+    badgeBg: "bg-amber-50 text-amber-800 border-amber-200"
   }
 };
